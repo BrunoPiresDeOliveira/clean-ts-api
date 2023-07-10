@@ -22,7 +22,8 @@ const config = {
     '<rootDir>/src/domain',
     '<rootDir>/src/data/usecases/add-account/db-add-account-protocols.ts',
     '<rootDir>/src/presentation/controllers/signup/signup-protocols.ts'
-  ]
+  ],
+  preset: '@shelf/jest-mongodb'
 }
 
 module.exports = config
