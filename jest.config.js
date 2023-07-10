@@ -15,7 +15,14 @@ const config = {
   testEnvironment: 'node',
   transform: {
     '.+\\.ts$': 'ts-jest'
-  }
+  },
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/data/protocols',
+    '<rootDir>/src/presentation/protocols',
+    '<rootDir>/src/domain',
+    '<rootDir>/src/data/usecases/add-account/db-add-account-protocols.ts',
+    '<rootDir>/src/presentation/controllers/signup/signup-protocols.ts'
+  ]
 }
 
 module.exports = config
