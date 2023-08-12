@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
-    "dev": "sucrase-node src/main/server.ts",
+    "up": "npm run build && docker-compose up -d",
+    "down": "docker-compose down",
     "test": "jest --passWithNoTests --silent --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- -c jest-unit-config.js --watch",
@@ -26,7 +27,6 @@
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
     "@types/jsonwebtoken": "^9.0.2",
-    "@types/mongodb": "^4.0.7",
     "@types/node": "^20.3.3",
     "@types/supertest": "^2.0.12",
     "@types/validator": "^13.7.17",
@@ -40,7 +40,6 @@
     "jest": "^29.6.0",
     "lint-staged": "^13.2.3",
     "rimraf": "^5.0.1",
-    "sucrase": "^3.32.0",
     "supertest": "^6.3.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
