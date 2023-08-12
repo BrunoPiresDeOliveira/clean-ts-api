@@ -20,7 +20,7 @@ services:
       - MONGO_URL=mongodb://mongo:27017/clean-node-api
       - JWT_SECRET_KEY=secret_key
     volumes:
-      - ./dist:/usr/src/clean-node-api/dist/
+      - ./dist/:/usr/src/clean-node-api/dist/
       - ./package.json:/usr/src/clean-node-api/package.json
     ports:
       - '5050:5050'
