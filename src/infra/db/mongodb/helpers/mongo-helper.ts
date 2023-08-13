@@ -4,8 +4,9 @@ export const MongoHelper = {
   client: null as MongoClient,
   uri: null as string,
 
-  async connect (uri: string): Promise<void> {
+  async connect (uri?: string): Promise<void> {
     this.uri = uri
+    if (!uri) throw new Error('URI mongodb undefined')
     this.client = await MongoClient.connect(uri)
   },
 
