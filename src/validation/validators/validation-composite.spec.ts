@@ -1,10 +1,10 @@
-import { MissingParamError } from '../../errors'
-import type { Validation } from '../../protocols/validation'
+import { MissingParamError } from '../../presentation/errors'
+import type { Validation } from '../../presentation/protocols/validation'
 import { ValidationComposite } from './validation-composite'
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
-    validate (input: any): Error {
+    validate (input: any): Error | null {
       return null
     }
   }
