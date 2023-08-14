@@ -19,6 +19,9 @@ const config = {
   transform: {
     '.+\\.ts$': 'ts-jest'
   },
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1'
+  },
   coveragePathIgnorePatterns: [
     '<rootDir>/src/data/protocols',
     '<rootDir>/src/presentation/protocols',
