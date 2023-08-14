@@ -82,7 +82,7 @@ describe('Survey Routes', () => {
         .expect(403)
     })
 
-    // test('Should return 204 on add survey with valid accessToken', async () => {
+    // test('Should return 200 on add survey with valid accessToken', async () => {
     //   await accountCollection.insertOne({
     //     name: 'any_name',
     //     email: 'any_email@mail.com',
