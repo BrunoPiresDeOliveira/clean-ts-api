@@ -24,11 +24,11 @@ export class SignUpController implements Controller {
       if (!account) {
         return forbidden(new EmailInUseError())
       }
-      await this.authentication.auth({
+      const token = await this.authentication.auth({
         email,
         password
       })
-      return ok(account)
+      return ok({ accessToken: token })
     } catch (error) {
       return serverError(error)
     }
