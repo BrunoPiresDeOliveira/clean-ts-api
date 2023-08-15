@@ -65,6 +65,7 @@ describe('Survey Mongo Repository', () => {
       const surveys = await sut.loadAll()
       expect(surveys).toBeInstanceOf(Array)
       expect(surveys[0].question).toBe('any_question')
+      expect(surveys[0].id).toBeTruthy()
       expect(surveys[1].question).toBe('other_question')
     })
 
@@ -89,6 +90,7 @@ describe('Survey Mongo Repository', () => {
       const sut = makeSut()
       const survey = await sut.loadById(_id.toString())
       expect(survey).toBeTruthy()
+      expect(survey.id).toBeTruthy()
     })
   })
 })
