@@ -1,8 +1,8 @@
-export type AuthenticationParam = {
+export type AuthenticationParams = {
   email: string
   password: string
 }
 
 export interface Authentication {
-  auth: (authentication: AuthenticationParam) => Promise<string | null>
+  auth: (authentication: AuthenticationParams) => Promise<string | null>
 }

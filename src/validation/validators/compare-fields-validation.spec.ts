@@ -1,4 +1,4 @@
-import { InvalidParamError } from '@/presentation/errors'
+import { InvalidParamsError } from '@/presentation/errors'
 import { CompareFieldsValidation } from './compare-fields-validation'
 
 const makeSut = (): CompareFieldsValidation => {
@@ -6,13 +6,13 @@ const makeSut = (): CompareFieldsValidation => {
 }
 
 describe('CompareFields Validation', () => {
-  test('Should return a InvalidParamError if validation fails', () => {
+  test('Should return a InvalidParamsError if validation fails', () => {
     const sut = makeSut()
     const error = sut.validate({
       field: 'any_value',
       fieldToCompare: 'wrong_value'
     })
-    expect(error).toEqual(new InvalidParamError('fieldToCompare'))
+    expect(error).toEqual(new InvalidParamsError('fieldToCompare'))
   })
 
   test('Should not return if validation success', () => {

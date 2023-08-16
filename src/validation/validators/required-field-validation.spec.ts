@@ -1,4 +1,4 @@
-import { MissingParamError } from '@/presentation/errors'
+import { MissingParamsError } from '@/presentation/errors'
 import { RequiredFieldValidation } from './required-field-validation'
 
 const makeSut = (): RequiredFieldValidation => {
@@ -6,10 +6,10 @@ const makeSut = (): RequiredFieldValidation => {
 }
 
 describe('RequiredField Validation', () => {
-  test('Should return a MissingParamError if validation fails', () => {
+  test('Should return a MissingParamsError if validation fails', () => {
     const sut = makeSut()
     const error = sut.validate({ name: 'any_name' })
-    expect(error).toEqual(new MissingParamError('field'))
+    expect(error).toEqual(new MissingParamsError('field'))
   })
 
   test('Should not return if validation success', () => {

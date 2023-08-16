@@ -8,7 +8,10 @@ const config = {
   collectCoverage: false,
   collectCoverageFrom: [
     '<rootDir>/src/**/*.ts',
-    '!<rootDir>/src/main/**'
+    '!<rootDir>/src/main/**',
+    '!<rootDir>/src/**/*-protocols.ts',
+    '!<rootDir>/src/**/protocols/**',
+    '!<rootDir>/**/test/**'
   ],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
@@ -23,11 +26,7 @@ const config = {
     '@/(.*)': '<rootDir>/src/$1'
   },
   coveragePathIgnorePatterns: [
-    '<rootDir>/src/data/protocols',
-    '<rootDir>/src/presentation/protocols',
-    '<rootDir>/src/domain',
-    '<rootDir>/src/data/usecases/add-account/db-add-account-protocols.ts',
-    '<rootDir>/src/presentation/controllers/signup/signup-protocols.ts'
+    '<rootDir>/src/domain'
   ],
   preset: '@shelf/jest-mongodb'
 }
