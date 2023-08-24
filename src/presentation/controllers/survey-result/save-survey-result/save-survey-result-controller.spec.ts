@@ -4,7 +4,7 @@ import type { HttpRequest, LoadSurveyById, SaveSurveyResult } from './save-surve
 import { InvalidParamsError } from '@/presentation/errors'
 import MockDate from 'mockdate'
 import { throwError, mockSurveyResultModel } from '@/domain/test'
-import { mockLoadSurveyById, makeSaveSurveyResult } from '@/presentation/test'
+import { mockLoadSurveyById, mockSaveSurveyResult } from '@/presentation/test'
 
 const makeFakeRequest = (): HttpRequest => ({
   params: {
@@ -24,7 +24,7 @@ type SutTypes = {
 
 const makeSut = (): SutTypes => {
   const loadSurveyByIdStub = mockLoadSurveyById()
-  const saveSurveyResultStub = makeSaveSurveyResult()
+  const saveSurveyResultStub = mockSaveSurveyResult()
   const sut = new SaveSurveyResultController(loadSurveyByIdStub, saveSurveyResultStub)
   return {
     sut,
