@@ -1,7 +1,8 @@
 import { mockSurveyResultModel } from '@/domain/test'
 import type { SaveSurveyResult, SaveSurveyResultParams, SurveyResultModel } from '../controllers/survey-result/save-survey-result/save-survey-result-controller-protocols'
+import type { LoadSurveyResult } from '@/domain/usecases/survey-result/load-survey-result'
 
-export const makeSaveSurveyResult = (): SaveSurveyResult => {
+export const mockSaveSurveyResult = (): SaveSurveyResult => {
   class SaveSurveyResultStub implements SaveSurveyResult {
     async save (data: SaveSurveyResultParams): Promise<SurveyResultModel> {
       return await Promise.resolve(mockSurveyResultModel())
@@ -9,4 +10,14 @@ export const makeSaveSurveyResult = (): SaveSurveyResult => {
   }
 
   return new SaveSurveyResultStub()
+}
+
+export const mockLoadSurveyResult = (): LoadSurveyResult => {
+  class LoadSurveyResultStub implements LoadSurveyResult {
+    async load (surveyid: string): Promise<SurveyResultModel> {
+      return await Promise.resolve(mockSurveyResultModel())
+    }
+  }
+
+  return new LoadSurveyResultStub()
 }
