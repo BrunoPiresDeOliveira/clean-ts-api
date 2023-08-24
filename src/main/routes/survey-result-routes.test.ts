@@ -88,5 +88,23 @@ describe('Survey Routes', () => {
         .get('/api/surveys/any_id/results')
         .expect(403)
     })
+
+    test('Should return 200 on load survey result with accessToken', async () => {
+      await surveyCollection.insertOne({
+        question: 'any_question',
+        answers: [{
+          image: 'any_image',
+          answer: 'any_answer'
+        }, {
+          answer: 'other_answer'
+        }],
+        date: new Date()
+      })
+      const { _id } = await surveyCollection.findOne({ question: 'any_question' })
+      await request(app)
+        .get(`/api/surveys/${_id.toString()}/results`)
+        .set('x-access-token', await makeAccessToken())
+        .expect(200)
+    })
   })
 })
